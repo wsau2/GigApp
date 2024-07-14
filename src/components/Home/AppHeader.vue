@@ -3,7 +3,7 @@
       <!-- Search bar -->
       <div class="bg-[#D9D9D9] rounded-lg border border-gray-300 flex-auto py-[5px] px-[8px] flex space-x-[5px]">
         <div>
-          <img src="../assets/search.svg" width="24"/>
+          <img src="../../assets/search.svg" width="24"/>
         </div>
         <input type="text" 
           placeholder="Search" 
@@ -11,7 +11,7 @@
       </div>
       
       <!-- Filter Button -->
-      <img src="../assets/filter.svg" width="24" @click="scream"/>
+      <img src="../../assets/filter.svg" width="24" @click="scream"/>
   </div>
 </template>
 

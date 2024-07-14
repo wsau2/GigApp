@@ -1,5 +1,5 @@
 <template>
-<p>detail</p>
+<p>calendar</p>
 </template>
 
 <script setup lang="ts">

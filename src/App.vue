@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import AppHeader from "./components/AppHeader.vue";
-import GigList from "./components/GigList.vue"
+import AppHeader from "./components/Home/AppHeader.vue";
+import GigList from "./components/Home/GigList.vue"
 import AppFooter from "./components/AppFooter.vue";
-import JobDetail from "./components/JobDetail.vue";
+import JobDetail from "./components/Home/JobDetail.vue";
 import { useStore } from "../store/store"
 import { storeToRefs } from "pinia";
+import { onMounted } from "vue";
+
 
 const jobStore = useStore();
 const { showDetail } = storeToRefs(jobStore)
+
+// Mobile view alert
+// onMounted(() => alert("Intended for mobile view"))
 </script>
 
 <template>
-  <div v-if="!showDetail">
-    <AppHeader/>
-    <GigList/>
-  </div>
-  <JobDetail v-else/>
-  
+  <router-view></router-view>
   <AppFooter/>
 </template>
 

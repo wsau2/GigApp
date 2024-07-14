@@ -11,8 +11,11 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1",
     "pinia": "^2.1.7",
-    "vue": "^3.4.29"
+    "vue": "^3.4.29",
+    "vue-router": "^4.4.0"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
