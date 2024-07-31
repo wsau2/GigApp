@@ -34,6 +34,7 @@ export async function postListing(title:string, description:string, pay:number, 
                 description: description,
                 pay: pay,
                 duration: duration,
+                creator: "CREATOR",
             })
         })
 

@@ -20,7 +20,7 @@
                 
                 <div class="col-span-3">
                     <label for="duration" class="block">Duration</label>
-                    <input name="duration" type="number" min="0" v-model="duration"/>
+                    <input name="duration" type="number" step="0.01" min="0" v-model="duration"/>
                 </div>
 
                 <button type="submit" class="bg-indigo-600 text-white px-3 py-2 rounded-md text-sm font-semibold shadow-sm hover:bg-indigo-500">Submit</button>
