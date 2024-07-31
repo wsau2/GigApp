@@ -11,6 +11,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "@vueuse/core": "^10.11.0",
     "express": "^4.19.2",
     "mongoose": "^8.5.1",

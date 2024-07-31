@@ -7,7 +7,7 @@
         </div>
         <input type="text" 
           placeholder="Search" 
-          class="placeholder:text-black placeholder:font-bold w-full bg-transparent">
+          class="placeholder:text-black placeholder:font-bold w-full bg-transparent h-[24px] border-0">
       </div>
       
       <!-- Filter Button -->

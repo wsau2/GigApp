@@ -2,7 +2,7 @@
 
 <!-- User Info -->
 <div class="bg-[#E4F4FF] w-full flex flex-col items-center py-[50px] mb-[20px]">
-    <img src="../../assets/bell.svg" class="size-[70px]"/>
+    <img src="../../assets/mads.webp" class="size-[100px] rounded-full"/>
     <p class="text-[80px] font-bold">$100</p>
     <p>balance</p>
 </div>
