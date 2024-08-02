@@ -22,7 +22,7 @@ export async function fetchListings() {
     }
 }
 
-export async function postListing(title:string, description:string, pay:number, duration:number) {
+export async function postListing(title:string, description:string, pay:number, duration:number, creator:string) {
     try {
         const response = await fetch('https://gigappdb-production.up.railway.app/api/v1/listings', {
             method: 'POST',
@@ -34,7 +34,7 @@ export async function postListing(title:string, description:string, pay:number, 
                 description: description,
                 pay: pay,
                 duration: duration,
-                creator: "CREATOR",
+                creator: creator,
             })
         })
 
@@ -45,11 +45,34 @@ export async function postListing(title:string, description:string, pay:number, 
         }
 
         const data = await response.json();
-        console.log('Fetched Listings:', data)
+        console.log('Fetched Listings:', data);
         return data;
 
     } catch (error) {
         console.error('Error posting listings:', error);
-        return null
+        return null;
+    }
+}
+
+export async function fetchUsers() {
+    try {
+        const response = await fetch('https://gigappdb-production.up.railway.app/api/v1/users', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Fetched Users:', data);
+        return data;
+
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        return null;
     }
 }

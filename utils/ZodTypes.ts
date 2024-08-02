@@ -12,3 +12,15 @@ const listing = z.object({
 })
 
 export type Listing = z.infer<typeof listing>
+
+
+const user = z.object({
+    _id: z.string(),
+    userID: z.string(),
+    profilePicture: z.string(),
+    jobsAppliedTo: z.string().array(),
+    jobsCreated: z.string().array(),
+    money: z.number(),
+    __v: z.number(),
+})
+export type User = z.infer<typeof user>

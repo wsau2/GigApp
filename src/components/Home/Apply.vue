@@ -24,14 +24,14 @@
                     <input name="street-address" type="text" class="w-full"/>
                 </div>
 
-                <div>
+                <div class="col-span-full">
                     <label for="resume" class="block">Resume</label>
                     <input name="resume" type="file"/>
                 </div>
                 
-                <div>
+                <div class="col-span-full flex items-center my-10">
+                    <input name="hispanic-latino" id="hispanic-latino" type="checkbox"/>
                     <label for="hispanic-latino" class="block">Hispanic/Latino</label>
-                    <input name="hispanic-latino" type="checkbox"/>
                 </div>
                 
                 

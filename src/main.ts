@@ -11,6 +11,7 @@ import Calendar from './components/Calendar/Calendar.vue'
 import Wallet from './components/Wallet/Wallet.vue'
 import Apply from './components/Home/Apply.vue'
 import CreateListing from './components/Home/CreateListing.vue'
+import Login from './components/Login/Login.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -21,6 +22,7 @@ const router = createRouter({
         { path: '/calendar', component: Calendar },
         { path: '/wallet', component: Wallet },
         { path: '/create-listing', component: CreateListing },
+        { path: '/login', component: Login },
     ]
 });
 

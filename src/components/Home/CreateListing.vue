@@ -50,7 +50,13 @@
                 duration: duration.value,
             }));
 
-            postListing(title.value, description.value, pay.value, duration.value)
+            postListing(title.value, description.value, pay.value, duration.value, "CREATOR")
+
+            // Clear form
+            title.value = ''
+            description.value = ''
+            duration.value = 0
+            pay.value = 0
         } else {
             alert('Listing must have a title')
         }
