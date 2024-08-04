@@ -6,11 +6,10 @@
 
     <!-- Temp -->
      <p>Users</p>
-    <UserSelect/>
+
     
 </div>
 </template>
 
 <script setup lang="ts">
-import UserSelect from '../Home/UserSelect.vue';
 </script>

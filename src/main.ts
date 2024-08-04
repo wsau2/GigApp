@@ -3,6 +3,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import './index.css'
 import { createRouter, createWebHistory } from 'vue-router'
+import { useStore } from '../store/store'
 
 // Components
 import Home from './components/Home/Home.vue'
@@ -24,6 +25,16 @@ const router = createRouter({
         { path: '/create-listing', component: CreateListing },
         { path: '/login', component: Login },
     ]
+});
+
+router.beforeEach((to, from, next) => {
+    const userStore = useStore();
+
+    if (userStore.currUser === null && to.path !== '/login') {
+        next('/login');
+    } else {
+        next();
+    }
 });
 
 const app = createApp(App)

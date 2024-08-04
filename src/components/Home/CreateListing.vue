@@ -34,6 +34,9 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import { postListing } from '../../../utils/query';
+    import { useStore } from '../../../store/store';
+    
+    const listingStore = useStore();
 
     const title = ref('')
     const description = ref('')
@@ -50,13 +53,16 @@
                 duration: duration.value,
             }));
 
-            postListing(title.value, description.value, pay.value, duration.value, "CREATOR")
+            postListing(title.value, description.value, pay.value, duration.value, listingStore.currUser._id)
 
             // Clear form
             title.value = ''
             description.value = ''
             duration.value = 0
             pay.value = 0
+
+            // Update listing store
+            listingStore.updateListings();
         } else {
             alert('Listing must have a title')
         }

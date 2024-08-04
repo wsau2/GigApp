@@ -1,78 +1,69 @@
 // Fetches listings from api
 export async function fetchListings() {
-    try {
-        const response = await fetch('https://gigappdb-production.up.railway.app/api/v1/listings', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+    const response = await fetch('https://gigappdb-production.up.railway.app/api/v1/listings', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('Fetched Listings:', data)
-        return data
-
-    } catch (error) {
-        console.error('Error fetching listings:', error);
-        return null
-    }
+    return queryHelper(response);
 }
 
 export async function postListing(title:string, description:string, pay:number, duration:number, creator:string) {
-    try {
-        const response = await fetch('https://gigappdb-production.up.railway.app/api/v1/listings', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                title: title,
-                description: description,
-                pay: pay,
-                duration: duration,
-                creator: creator,
-            })
+    const response = await fetch('https://gigappdb-production.up.railway.app/api/v1/listings', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            title: title,
+            description: description,
+            pay: pay,
+            duration: duration,
+            creator: creator,
         })
+    })
 
-        if (!response.ok) {
-            const errorDetails = await response.json();
-            console.error('Error details:', errorDetails);
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log('Fetched Listings:', data);
-        return data;
-
-    } catch (error) {
-        console.error('Error posting listings:', error);
-        return null;
-    }
+    return queryHelper(response);
 }
 
 export async function fetchUsers() {
-    try {
-        const response = await fetch('https://gigappdb-production.up.railway.app/api/v1/users', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+    const response = await fetch('https://gigappdb-production.up.railway.app/api/v1/users', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
 
+    return queryHelper(response);
+}
+
+export async function fetchUser(_id: string) {
+    console.log(_id)
+
+    const response = await fetch('https://gigappdb-production.up.railway.app/api/v1/users/' + _id, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+    
+    return queryHelper(response);
+}
+
+async function queryHelper(response: Response) {
+    try {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
         const data = await response.json();
-        console.log('Fetched Users:', data);
+        console.log('Fetched data:', data);
         return data;
 
     } catch (error) {
-        console.error('Error fetching users:', error);
+        console.error('Error fetching data:', error);
         return null;
     }
 }

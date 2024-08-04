@@ -13,8 +13,9 @@
         {{ currListing.description }}
     </div>
     <!-- Profile Card -->
+    <!-- Send user document id instead of name, so that here there can be a fetch request to db with id for name, community rating, etc -->
     <div class="bg-[#E4F4FF] rounded-lg h-[100px] flex flex-row p-[16px] items-center space-x-4 shadow-lg">
-        <img src="../../assets/mads.webp" class="size-[70px] rounded-full"/>
+        <img src="" class="size-[70px] rounded-full object-cover"/>
         <div>
             <p class="text-[20px] font-bold">{{ currListing.creator }}</p>
             <p class="text-[17px]">community rating: 5/5</p>
@@ -32,15 +33,21 @@
 import { useStore } from '../../../store/store'
 import { useRouter } from 'vue-router';
 import { onMounted } from 'vue';
+import { fetchUser } from '../../../utils/query';
+
 
 const listingStore = useStore()
 const currListing = listingStore.currDetailListing;
 const router = useRouter();
 
 onMounted(() => {
+    // this check might be obsolete
     if (currListing == null) {
         router.push('/')
     }
+
+    // Fetch the user that created the listing
+    fetchUser(currListing.creator)
 })
 
 function apply() {

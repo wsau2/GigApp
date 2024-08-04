@@ -9,6 +9,7 @@ export const useStore = defineStore('jobs', {
             // Listing stuff
             listings: [] as Listing[],  // Array of every listing object
             currDetailListing: null as unknown as Listing,
+            currDetailUser: null as unknown as User,
 
             // User Stuff
             users: [] as User[],
@@ -19,8 +20,7 @@ export const useStore = defineStore('jobs', {
     },
 
     actions: {
-        // Queries backend and pushes new listings to this.listings
-        // For now, clears this.listings then pushes same stuff
+        // Listing stuff
         async updateListings() {
             this.listings = [];
             const newListings = await fetchListings();
@@ -31,11 +31,12 @@ export const useStore = defineStore('jobs', {
             this.currDetailListing = listing
         },
 
-        toggleDetail() { 
-            this.showDetail = !this.showDetail
+        setDetailUser(user: User) {
+            this.currDetailUser = user;
         },
 
 
+        // User stuff
         async updateUsers() {
             this.users = [];
             const newUsers = await fetchUsers();
